@@ -183,9 +183,9 @@ def save_result(task_type, result_df, output_dir):
 def main():
     parser = argparse.ArgumentParser(description="Evaluate SeaLLM (HuggingFace) on Thai-specific subset")
     parser.add_argument("--model-name",         type=str,   default="SeaLLMs/SeaLLMs-v3-7B-Chat")
-    parser.add_argument("--eval-csv",           type=str,   default="./eval/eval_set.csv")
-    parser.add_argument("--output-dir",         type=str,   default="./eval/sea_llm_results")
-    parser.add_argument("--checkpoint-dir",     type=str,   default="./checkpoints_sea_llm")
+    parser.add_argument("--eval-csv",           type=str,   default="/workspace/Thai-Specific-Instruct/eval/eval_set.csv")
+    parser.add_argument("--output-dir",         type=str,   default="/workspace/Thai-Specific-Instruct/eval/sea_llm_results")
+    parser.add_argument("--checkpoint-dir",     type=str,   default="/workspace/Thai-Specific-Instruct/checkpoints_sea_llm")
     parser.add_argument("--few-shot",           type=int,   default=0)
     parser.add_argument("--max-new-tokens",     type=int,   default=512)
     parser.add_argument("--temperature",        type=float, default=0.05)
