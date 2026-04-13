@@ -14,25 +14,25 @@ TASKS = [
 ]
 
 # RTX 4090 (24 GB VRAM).
-# BATCH_SIZE_BY_TASK = {
-#     "Summarization":    2,   # ~4096 tok input → ~1.3 GB/seq
-#     "Closed QA":        4,   # ~1024 tok input → ~440 MB/seq
-#     "Creative writing": 4,
-#     "Brainstorming":    4,
-#     "Open QA":          8,   # ~512 tok input  → ~294 MB/seq
-#     "Classification":   8,
-#     "Multiple choice":  8,
-# }
-#A100 40GB
 BATCH_SIZE_BY_TASK = {
-    "Summarization":    8,   # 2 × 4
-    "Closed QA":       16,   # 4 × 4
-    "Creative writing": 16,
-    "Brainstorming":   16,
-    "Open QA":         32,   # 8 × 4
-    "Classification":  32,
-    "Multiple choice": 32,
+    "Summarization":    2,   # ~4096 tok input → ~1.3 GB/seq
+    "Closed QA":        4,   # ~1024 tok input → ~440 MB/seq
+    "Creative writing": 4,
+    "Brainstorming":    4,
+    "Open QA":          8,   # ~512 tok input  → ~294 MB/seq
+    "Classification":   8,
+    "Multiple choice":  8,
 }
+#A100 40GB
+# BATCH_SIZE_BY_TASK = {
+#     "Summarization":    8,   # 2 × 4
+#     "Closed QA":       16,   # 4 × 4
+#     "Creative writing": 16,
+#     "Brainstorming":   16,
+#     "Open QA":         32,   # 8 × 4
+#     "Classification":  32,
+#     "Multiple choice": 32,
+# }
 
 SYSTEM_PROMPT = (
     "Below is an instruction that describes a task, paired with an input that provides "
@@ -181,11 +181,11 @@ def save_result(task_type, result_df, output_dir):
 
 # ── Main ────────────────────────────────────────────────────────────────────────
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate SeaLLM (HuggingFace) on Thai-specific subset")
-    parser.add_argument("--model-name",         type=str,   default="SeaLLMs/SeaLLMs-v3-7B-Chat")
+    parser = argparse.ArgumentParser(description="Evaluate Gemma (HuggingFace) on Thai-specific subset")
+    parser.add_argument("--model-name",         type=str,   default="google/gemma-4-E4B")
     parser.add_argument("--eval-csv",           type=str,   default="/workspace/Thai-Specific-Instruct/eval/eval_set.csv")
-    parser.add_argument("--output-dir",         type=str,   default="/workspace/Thai-Specific-Instruct/eval/sea_llm_results")
-    parser.add_argument("--checkpoint-dir",     type=str,   default="/workspace/Thai-Specific-Instruct/checkpoints_sea_llm")
+    parser.add_argument("--output-dir",         type=str,   default="/workspace/Thai-Specific-Instruct/eval/gemma_results")
+    parser.add_argument("--checkpoint-dir",     type=str,   default="/workspace/Thai-Specific-Instruct/checkpoints_gemma")
     parser.add_argument("--few-shot",           type=int,   default=0)
     parser.add_argument("--max-new-tokens",     type=int,   default=512)
     parser.add_argument("--temperature",        type=float, default=0.05)
