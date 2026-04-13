@@ -23,15 +23,15 @@ TASKS = [
 #     "Classification":   8,
 #     "Multiple choice":  8,
 # }
-#A100 80GB
+#A100 40GB
 BATCH_SIZE_BY_TASK = {
-    "Summarization":   16,   # 2 × 11 → 16 (conservative)
-    "Closed QA":       32,   # 4 × 11 → 32
-    "Creative writing": 32,
-    "Brainstorming":   32,
-    "Open QA":         64,   # 8 × 11 → 64
-    "Classification":  64,
-    "Multiple choice": 64,
+    "Summarization":    8,   # 2 × 4
+    "Closed QA":       16,   # 4 × 4
+    "Creative writing": 16,
+    "Brainstorming":   16,
+    "Open QA":         32,   # 8 × 4
+    "Classification":  32,
+    "Multiple choice": 32,
 }
 
 SYSTEM_PROMPT = (
